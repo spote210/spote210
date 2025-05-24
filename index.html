@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Project Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -236,36 +236,53 @@
             font-size: 0.95rem;
         }
         
-        /* Projects Section Specific Styles */
+        /* Project Portfolio Styles */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 1rem 0;
+            gap: 20px;
+            padding: 20px;
         }
-        
+
         .project-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 16px;
+            background: #fff;
+            border-radius: 8px;
             overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
+
+        .video-thumbnail:hover img {
+            transform: scale(1.05);
         }
-        
+
+        .project-info {
+            padding: 15px;
+        }
+
         .project-title {
-            padding: 1rem;
-            margin: 0;
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
-        
+
         .project-description {
-            padding: 0 1rem 1rem;
-            margin: 0;
-            color: var(--text-secondary);
+            color: #666;
+            font-size: 0.9rem;
         }
         
         /* Mobile Responsiveness */
@@ -484,11 +501,228 @@
                             Projects Demo
                         </a>
                     </div>
+                    
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank">
+                                <div class="video-thumbnail">
+                                    <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" alt="AI Chat Interface">
+                                </div>
+                            </a>
+                            <div class="project-info">
+                                <h3 class="project-title">AI Chat Interface</h3>
+                                <p class="project-description">A sophisticated chat interface with AI integration</p>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank">
+                                <div class="video-thumbnail">
+                                    <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="Data Visualization">
+                                </div>
+                            </a>
+                            <div class="project-info">
+                                <h3 class="project-title">Data Visualization Dashboard</h3>
+                                <p class="project-description">Interactive data analysis dashboard</p>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank">
+                                <div class="video-thumbnail">
+                                    <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" alt="ML Pipeline">
+                                </div>
+                            </a>
+                            <div class="project-info">
+                                <h3 class="project-title">ML Pipeline</h3>
+                                <p class="project-description">End-to-end machine learning pipeline</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Research Section -->
+                <section id="research-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">Research Paper Implementations</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Research Overview
+                        </a>
+                    </div>
                     <div class="grid">
                         <div class="card">
-                            <h3 class="card-title">Project 1</h3>
-                            <p class="card-description">Project description goes here.</p>
+                            <h3 class="card-title">Transformer Architecture Implementation</h3>
+                            <p class="card-description">Complete implementation of "Attention Is All You Need" with detailed documentation and experiments.</p>
                         </div>
+                        <div class="card">
+                            <h3 class="card-title">GANs for Image Generation</h3>
+                            <p class="card-description">Implementation of various GAN architectures with comparative analysis and results.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Reinforcement Learning Agents</h3>
+                            <p class="card-description">Deep Q-Learning and Policy Gradient implementations with gaming environments.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- AI Agent Section -->
+                <section id="ai-agent-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">AI Agent Development</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Agent Demo
+                        </a>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Autonomous Research Agent</h3>
+                            <p class="card-description">AI agent that can autonomously research topics, gather information, and generate comprehensive reports.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Code Generation Agent</h3>
+                            <p class="card-description">Specialized agent for generating, reviewing, and optimizing code across multiple programming languages.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Multi-Modal Agent</h3>
+                            <p class="card-description">Agent capable of processing text, images, and audio inputs to provide comprehensive responses.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- AI Concepts Section -->
+                <section id="ai-concepts-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">New AI Concepts POC</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Concepts Demo
+                        </a>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Federated Learning POC</h3>
+                            <p class="card-description">Proof of concept for distributed machine learning without centralizing data.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Neural Architecture Search</h3>
+                            <p class="card-description">Automated neural network design using evolutionary algorithms and reinforcement learning.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Quantum ML Integration</h3>
+                            <p class="card-description">Exploring quantum computing applications in machine learning algorithms.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- About Section -->
+                <section id="about-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">About Me</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Personal Story
+                        </a>
+                    </div>
+                    <div style="max-width: 800px; margin: 0 auto;">
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
+                            I'm a passionate AI researcher and developer with a deep interest in pushing the boundaries of artificial intelligence. 
+                            My work focuses on implementing cutting-edge research papers, developing intelligent agents, and exploring new AI concepts 
+                            through practical proof-of-concepts.
+                        </p>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
+                            With a background in computer science and machine learning, I bridge the gap between theoretical research and 
+                            practical applications, creating solutions that can make a real impact in the world.
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- Experience Section -->
+                <section id="experience-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">Experience</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Career Journey
+                        </a>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Senior AI Engineer (2023-Present)</h3>
+                            <p class="card-description">Leading AI research and development projects, implementing state-of-the-art models and algorithms.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Machine Learning Engineer (2021-2023)</h3>
+                            <p class="card-description">Developed and deployed ML models for production environments, focusing on scalability and performance.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Research Assistant (2020-2021)</h3>
+                            <p class="card-description">Conducted research in deep learning and computer vision, published papers in top-tier conferences.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Skills Section -->
+                <section id="skills-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">Skills & Technologies</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Skills Demo
+                        </a>
+                    </div>
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Programming Languages</h3>
+                            <p class="card-description">Python, JavaScript, R, Julia, C++, SQL</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">AI/ML Frameworks</h3>
+                            <p class="card-description">TensorFlow, PyTorch, Scikit-learn, Hugging Face, OpenAI API</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Cloud & DevOps</h3>
+                            <p class="card-description">AWS, Google Cloud, Docker, Kubernetes, MLOps</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Research Areas</h3>
+                            <p class="card-description">NLP, Computer Vision, Reinforcement Learning, Generative AI</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Contact Section -->
+                <section id="contact-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">Get In Touch</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Contact Info
+                        </a>
+                    </div>
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                            I'm always open to discussing new projects, research collaborations, or any other inquiries you may have.
+                        </p>
+                        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                            You can reach out to me via email at <a href="mailto:your.email@example.com" style="color: var(--primary-pink);">your.email@example.com</a> or connect with me on 
+                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="color: var(--primary-pink);">LinkedIn</a>.
+                        </p>
                     </div>
                 </section>
             </div>
@@ -496,116 +730,246 @@
     </div>
     
     <script>
+        // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const contentContainer = document.getElementById('content-container');
-
-            // Initialize with home content
-            contentContainer.innerHTML = sectionContent.home;
-
-            // Add click event listeners to navigation links
+            
+            // Sample content for different sections
+            const sectionContent = {
+                home: document.getElementById('home-content').outerHTML,
+                projects: `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">Projects</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Projects Demo
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">Project 1: AI Chat Interface</h3>
+                                <p class="card-description">A sophisticated chat interface built with React and AI integration for natural language processing.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Project 2: Data Visualization Dashboard</h3>
+                                <p class="card-description">Interactive dashboard for complex data analysis with real-time updates and advanced filtering.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Project 3: Machine Learning Pipeline</h3>
+                                <p class="card-description">End-to-end ML pipeline for automated model training, evaluation, and deployment.</p>
+                            </div>
+                        </div>
+                    </section>
+                `,
+                research: `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">Research Paper Implementations</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Research Overview
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">Transformer Architecture Implementation</h3>
+                                <p class="card-description">Complete implementation of "Attention Is All You Need" with detailed documentation and experiments.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">GANs for Image Generation</h3>
+                                <p class="card-description">Implementation of various GAN architectures with comparative analysis and results.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Reinforcement Learning Agents</h3>
+                                <p class="card-description">Deep Q-Learning and Policy Gradient implementations with gaming environments.</p>
+                            </div>
+                        </div>
+                    </section>
+                `,
+                'ai-agent': `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">AI Agent Development</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Agent Demo
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">Autonomous Research Agent</h3>
+                                <p class="card-description">AI agent that can autonomously research topics, gather information, and generate comprehensive reports.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Code Generation Agent</h3>
+                                <p class="card-description">Specialized agent for generating, reviewing, and optimizing code across multiple programming languages.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Multi-Modal Agent</h3>
+                                <p class="card-description">Agent capable of processing text, images, and audio inputs to provide comprehensive responses.</p>
+                            </div>
+                        </div>
+                    </section>
+                `,
+                'ai-concepts': `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">New AI Concepts POC</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Concepts Demo
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">Federated Learning POC</h3>
+                                <p class="card-description">Proof of concept for distributed machine learning without centralizing data.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Neural Architecture Search</h3>
+                                <p class="card-description">Automated neural network design using evolutionary algorithms and reinforcement learning.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Quantum ML Integration</h3>
+                                <p class="card-description">Exploring quantum computing applications in machine learning algorithms.</p>
+                            </div>
+                        </div>
+                    </section>
+                `,
+                about: `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">About Me</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Personal Story
+                            </a>
+                        </div>
+                        <div style="max-width: 800px; margin: 0 auto;">
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
+                                I'm a passionate AI researcher and developer with a deep interest in pushing the boundaries of artificial intelligence. 
+                                My work focuses on implementing cutting-edge research papers, developing intelligent agents, and exploring new AI concepts 
+                                through practical proof-of-concepts.
+                            </p>
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
+                                With a background in computer science and machine learning, I bridge the gap between theoretical research and 
+                                practical applications, creating solutions that can make a real impact in the world.
+                            </p>
+                        </div>
+                    </section>
+                `,
+                experience: `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">Experience</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Career Journey
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">Senior AI Engineer (2023-Present)</h3>
+                                <p class="card-description">Leading AI research and development projects, implementing state-of-the-art models and algorithms.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Machine Learning Engineer (2021-2023)</h3>
+                                <p class="card-description">Developed and deployed ML models for production environments, focusing on scalability and performance.</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Research Assistant (2020-2021)</h3>
+                                <p class="card-description">Conducted research in deep learning and computer vision, published papers in top-tier conferences.</p>
+                            </div>
+                        </div>
+                    </section>
+                `,
+                skills: `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">Skills & Technologies</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Skills Demo
+                            </a>
+                        </div>
+                        <div class="grid">
+                            <div class="card">
+                                <h3 class="card-title">Programming Languages</h3>
+                                <p class="card-description">Python, JavaScript, R, Julia, C++, SQL</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">AI/ML Frameworks</h3>
+                                <p class="card-description">TensorFlow, PyTorch, Scikit-learn, Hugging Face, OpenAI API</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Cloud & DevOps</h3>
+                                <p class="card-description">AWS, Google Cloud, Docker, Kubernetes, MLOps</p>
+                            </div>
+                            <div class="card">
+                                <h3 class="card-title">Research Areas</h3>
+                                <p class="card-description">NLP, Computer Vision, Reinforcement Learning, Generative AI</p>
+                            </div>
+                        </div>
+                    </section>
+                `,
+                contact: `
+                    <section class="content-section">
+                        <div class="section-header">
+                            <h1 class="section-title">Get In Touch</h1>
+                            <a href="#" class="video-reference">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <polygon points="5,3 19,12 5,21"/>
+                                </svg>
+                                Contact Info
+                            </a>
+                        </div>
+                        <div style="max-width: 600px; margin: 0 auto;">
+                            <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                                I'm always open to discussing new projects, research collaborations, or any other inquiries you may have.
+                            </p>
+                            <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
+                                You can reach out to me via email at <a href="mailto:your.email@example.com" style="color: var(--primary-pink);">your.email@example.com</a> or connect with me on 
+                                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="color: var(--primary-pink);">LinkedIn</a>.
+                            </p>
+                        </div>
+                    </section>
+                `
+            };
+            
+            // Smooth scrolling to section
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
-                    // Remove active class from all links
-                    navLinks.forEach(nav => nav.classList.remove('active'));
-                    
-                    // Add active class to clicked link
-                    this.classList.add('active');
-                    
-                    // Get section identifier from data attribute
-                    const section = this.getAttribute('data-section');
-                    
-                    // Update content if section exists
-                    if (sectionContent[section]) {
-                        contentContainer.innerHTML = sectionContent[section];
-                        
-                        // Update URL hash without scrolling
-                        history.pushState(null, null, `#${section}`);
-                    }
-                });
-            });
-
-            // Handle direct URL access with hash
-            window.addEventListener('load', function() {
-                const hash = window.location.hash.slice(1);
-                if (hash && sectionContent[hash]) {
-                    contentContainer.innerHTML = sectionContent[hash];
+                    const targetSection = this.getAttribute('data-section');
                     
                     // Update active link
-                    navLinks.forEach(link => {
-                        if (link.getAttribute('data-section') === hash) {
-                            link.classList.add('active');
-                        } else {
-                            link.classList.remove('active');
-                        }
-                    });
-                }
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Load content for the selected section
+                    contentContainer.innerHTML = sectionContent[targetSection];
+                    
+                    // Scroll to top of content container
+                    contentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
             });
         });
-        
-        // Section content object
-        const sectionContent = {
-            home: `
-                <section class="content-section">
-                    <div class="section-header">
-                        <h1 class="section-title">Welcome</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Video Overview
-                        </a>
-                    </div>
-                    
-                    <div class="hero-section">
-                        <h1 class="hero-title">Hello! I'm Supriya</h1>
-                        <p class="hero-subtitle">A passionate researcher and developer focused on AI innovation, creating impactful solutions through cutting-edge technology and research.</p>
-                        <a href="#contact" class="cta-button">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                            </svg>
-                            Get in Touch
-                        </a>
-                    </div>
-                    
-                    <div class="grid">
-                        <div class="card">
-                            <h3 class="card-title">🚀 Current Focus</h3>
-                            <p class="card-description">Working on advanced AI agents and implementing cutting-edge research papers in practical applications.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">🔬 Research</h3>
-                            <p class="card-description">Implementing and documenting research paper findings with real-world applications and POCs.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">💡 Innovation</h3>
-                            <p class="card-description">Exploring new AI concepts and creating proof-of-concepts for emerging technologies.</p>
-                        </div>
-                    </div>
-                </section>
-            `,
-            projects: `
-                <section class="content-section">
-                    <div class="section-header">
-                        <h1 class="section-title">Projects</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Projects Demo
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3 class="card-title">Project 1</h3>
-                            <p class="card-description">Project description goes here.</p>
-                        </div>
-                    </div>
-                </section>
-            `
-        };
     </script>
 </body>
 </html>
