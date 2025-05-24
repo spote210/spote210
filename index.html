@@ -445,42 +445,66 @@
     </div>
     
     <script>
+        // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const contentContainer = document.getElementById('content-container');
 
-            // Initially hide all content sections
-            const contentSections = document.querySelectorAll('.content-section');
-            contentSections.forEach(section => {
-                section.style.display = 'none';
-            });
-
-            // Show the home section by default
-            document.getElementById('home-content').style.display = 'block';
+            // Show home content by default
+            contentContainer.innerHTML = document.getElementById('home-content').outerHTML;
 
             // Add click event listeners to navigation links
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const section = this.getAttribute('data-section');
-
-                    // Hide all content sections
-                    contentSections.forEach(section => {
-                        section.style.display = 'none';
-                    });
-
-                    // Show the selected section
-                    const selectedSection = document.getElementById(`${section}-content`);
-                    if (selectedSection) {
-                        selectedSection.style.display = 'block';
-                    }
-
-                    // Update active link
+                    
+                    // Remove active class from all links
                     navLinks.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked link
                     this.classList.add('active');
+                    
+                    // Get section name from data-section attribute
+                    const section = this.getAttribute('data-section');
+                    
+                    // Update content
+                    if (sectionContent[section]) {
+                        // Add fade out effect
+                        contentContainer.style.opacity = '0';
+                        
+                        setTimeout(() => {
+                            // Update content
+                            contentContainer.innerHTML = sectionContent[section];
+                            
+                            // Add fade in effect
+                            contentContainer.style.opacity = '1';
+                            
+                            // Trigger animation
+                            const newSection = contentContainer.querySelector('.content-section');
+                            if (newSection) {
+                                newSection.style.animation = 'none';
+                                newSection.offsetHeight; // Trigger reflow
+                                newSection.style.animation = null;
+                            }
+                        }, 300);
+                    }
                 });
             });
         });
+
+        // Add this CSS for smooth transitions
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                #content-container {
+                    transition: opacity 0.3s ease;
+                }
+                
+                .content-section {
+                    opacity: 1;
+                    transition: opacity 0.3s ease;
+                }
+            </style>
+        `);
     </script>
 </body>
 </html>
