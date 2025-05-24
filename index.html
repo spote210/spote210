@@ -236,6 +236,81 @@
             font-size: 0.95rem;
         }
         
+        /* Projects Section Specific Styles */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem 0;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .youtube-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+        }
+        
+        .youtube-thumbnail {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        
+        .play-button:hover {
+            background: rgb(255, 0, 0);
+        }
+        
+        .play-icon {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+        
+        .project-title {
+            padding: 1rem;
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            padding: 0 1rem 1rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+        
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .sidebar {
@@ -440,6 +515,27 @@
                         </div>
                     </div>
                 </section>
+                
+                <!-- Projects Section -->
+                <section id="projects-content" class="content-section" style="display:none;">
+                    <div class="section-header">
+                        <h1 class="section-title">Projects</h1>
+                    </div>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="youtube-container">
+                                <img src="https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg" alt="Project Video Thumbnail" class="youtube-thumbnail">
+                                <button class="play-button" data-video-id="VIDEO_ID_HERE">
+                                    <svg class="play-icon" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="project-title">Project Name</h3>
+                            <p class="project-description">Project description goes here</p>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
@@ -493,6 +589,95 @@
                 }
             });
         });
+        
+        // Add this JavaScript code at the end of your existing script section
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.play-button')) {
+                const button = e.target.closest('.play-button');
+                const videoId = button.getAttribute('data-video-id');
+                const container = button.closest('.youtube-container');
+                
+                // Create and insert iframe
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.style.position = 'absolute';
+                iframe.style.top = '0';
+                iframe.style.left = '0';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                
+                // Replace thumbnail with iframe
+                container.innerHTML = '';
+                container.appendChild(iframe);
+            }
+        });
+        
+        // Section content object
+        const sectionContent = {
+            home: `
+                <section class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Welcome</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Video Overview
+                        </a>
+                    </div>
+                    
+                    <div class="hero-section">
+                        <h1 class="hero-title">Hello! I'm Supriya</h1>
+                        <p class="hero-subtitle">A passionate researcher and developer focused on AI innovation, creating impactful solutions through cutting-edge technology and research.</p>
+                        <a href="#contact" class="cta-button">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                            Get in Touch
+                        </a>
+                    </div>
+                    
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">🚀 Current Focus</h3>
+                            <p class="card-description">Working on advanced AI agents and implementing cutting-edge research papers in practical applications.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">🔬 Research</h3>
+                            <p class="card-description">Implementing and documenting research paper findings with real-world applications and POCs.</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">💡 Innovation</h3>
+                            <p class="card-description">Exploring new AI concepts and creating proof-of-concepts for emerging technologies.</p>
+                        </div>
+                    </div>
+                </section>
+            `,
+            projects: `
+                <section class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Projects</h1>
+                    </div>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <div class="youtube-container">
+                                <img src="https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg" alt="Project Video Thumbnail" class="youtube-thumbnail">
+                                <button class="play-button" data-video-id="VIDEO_ID_HERE">
+                                    <svg class="play-icon" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <h3 class="project-title">Project Name</h3>
+                            <p class="project-description">Project description goes here</p>
+                        </div>
+                    </div>
+                </section>
+            `
+        };
     </script>
 </body>
 </html>
