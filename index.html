@@ -255,6 +255,9 @@
             position: relative;
             width: 100%;
             padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            cursor: pointer;
+            background: #000;
+            overflow: hidden;
         }
 
         .video-thumbnail img {
@@ -267,22 +270,40 @@
             transition: transform 0.3s ease;
         }
 
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 48px;
+            background-color: rgba(0,0,0,0.7);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .play-icon {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
         .video-thumbnail:hover img {
             transform: scale(1.05);
         }
 
-        .project-info {
-            padding: 15px;
+        .video-thumbnail:hover .play-button {
+            background-color: rgb(230,33,23);
         }
 
-        .project-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-
-        .project-description {
-            color: #666;
-            font-size: 0.9rem;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 0;
         }
         
         /* Mobile Responsiveness */
@@ -970,6 +991,76 @@
                 });
             });
         });
+    </script>
+
+    <script>
+        // YouTube video IDs - replace these with your actual video IDs
+        const projects = [
+            {
+                id: 'dQw4w9WgXcQ', // Replace with your video ID
+                title: 'AI Chat Interface',
+                description: 'A sophisticated chat interface with AI integration'
+            },
+            {
+                id: 'M7lc1UVf-VE', // Replace with your video ID
+                title: 'Data Visualization Dashboard',
+                description: 'Interactive data analysis dashboard'
+            },
+            {
+                id: '9bZkp7q19f0', // Replace with your video ID
+                title: 'ML Pipeline',
+                description: 'End-to-end machine learning pipeline'
+            }
+        ];
+
+        // Replace the projects section content
+        const projectsContent = `
+            <section class="content-section">
+                <div class="section-header">
+                    <h1 class="section-title">Projects</h1>
+                    <a href="#" class="video-reference">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                        Projects Demo
+                    </a>
+                </div>
+                
+                <div class="project-grid">
+                    ${projects.map(project => `
+                        <div class="project-card">
+                            <div class="video-thumbnail" onclick="playVideo('${project.id}')">
+                                <img src="https://img.youtube.com/vi/${project.id}/maxresdefault.jpg" 
+                                     alt="${project.title}">
+                                <div class="play-button">
+                                    <svg class="play-icon" viewBox="0 0 24 24">
+                                        <path fill="currentColor" d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3 class="project-title">${project.title}</h3>
+                                <p class="project-description">${project.description}</p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </section>
+        `;
+
+        // Function to play video
+        function playVideo(videoId) {
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            iframe.width = '100%';
+            iframe.height = '100%';
+            iframe.allow = 'autoplay; encrypted-media';
+            iframe.allowFullscreen = true;
+            
+            const thumbnail = event.currentTarget;
+            thumbnail.innerHTML = '';
+            thumbnail.appendChild(iframe);
+        }
     </script>
 </body>
 </html>
