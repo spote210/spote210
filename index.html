@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Portfolio</title>
+    <title>Your Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -236,76 +236,6 @@
             font-size: 0.95rem;
         }
         
-        /* Project Portfolio Styles */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-        }
-
-        .project-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .video-thumbnail {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            cursor: pointer;
-            background: #000;
-            overflow: hidden;
-        }
-
-        .video-thumbnail img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 68px;
-            height: 48px;
-            background-color: rgba(0,0,0,0.7);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .play-icon {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-
-        .video-thumbnail:hover img {
-            transform: scale(1.05);
-        }
-
-        .video-thumbnail:hover .play-button {
-            background-color: rgb(230,33,23);
-        }
-
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            border: 0;
-        }
-        
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .sidebar {
@@ -364,21 +294,6 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
-
-        /* Add this to your existing styles */
-        .video-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: #3b82f6;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .video-link:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
         }
     </style>
 </head>
@@ -525,279 +440,44 @@
                         </div>
                     </div>
                 </section>
-                
-                <!-- Projects Section -->
-                <section id="projects-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">Projects</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Projects Demo
-                        </a>
-                    </div>
-                    
-                    <div class="project-grid">
-                        <div class="project-card">
-                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank">
-                                <div class="video-thumbnail">
-                                    <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" alt="AI Chat Interface">
-                                </div>
-                            </a>
-                            <div class="project-info">
-                                <h3 class="project-title">AI Chat Interface</h3>
-                                <p class="project-description">A sophisticated chat interface with AI integration</p>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank">
-                                <div class="video-thumbnail">
-                                    <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="Data Visualization">
-                                </div>
-                            </a>
-                            <div class="project-info">
-                                <h3 class="project-title">Data Visualization Dashboard</h3>
-                                <p class="project-description">Interactive data analysis dashboard</p>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank">
-                                <div class="video-thumbnail">
-                                    <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" alt="ML Pipeline">
-                                </div>
-                            </a>
-                            <div class="project-info">
-                                <h3 class="project-title">ML Pipeline</h3>
-                                <p class="project-description">End-to-end machine learning pipeline</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Research Section -->
-                <section id="research-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">Research Paper Implementations</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Research Overview
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3 class="card-title">Transformer Architecture Implementation</h3>
-                            <p class="card-description">Complete implementation of "Attention Is All You Need" with detailed documentation and experiments.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">GANs for Image Generation</h3>
-                            <p class="card-description">Implementation of various GAN architectures with comparative analysis and results.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Reinforcement Learning Agents</h3>
-                            <p class="card-description">Deep Q-Learning and Policy Gradient implementations with gaming environments.</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- AI Agent Section -->
-                <section id="ai-agent-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">AI Agent Development</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Agent Demo
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3 class="card-title">Autonomous Research Agent</h3>
-                            <p class="card-description">AI agent that can autonomously research topics, gather information, and generate comprehensive reports.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Code Generation Agent</h3>
-                            <p class="card-description">Specialized agent for generating, reviewing, and optimizing code across multiple programming languages.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Multi-Modal Agent</h3>
-                            <p class="card-description">Agent capable of processing text, images, and audio inputs to provide comprehensive responses.</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- AI Concepts Section -->
-                <section id="ai-concepts-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">New AI Concepts POC</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Concepts Demo
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3 class="card-title">Federated Learning POC</h3>
-                            <p class="card-description">Proof of concept for distributed machine learning without centralizing data.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Neural Architecture Search</h3>
-                            <p class="card-description">Automated neural network design using evolutionary algorithms and reinforcement learning.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Quantum ML Integration</h3>
-                            <p class="card-description">Exploring quantum computing applications in machine learning algorithms.</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- About Section -->
-                <section id="about-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">About Me</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Personal Story
-                        </a>
-                    </div>
-                    <div style="max-width: 800px; margin: 0 auto;">
-                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
-                            I'm a passionate AI researcher and developer with a deep interest in pushing the boundaries of artificial intelligence. 
-                            My work focuses on implementing cutting-edge research papers, developing intelligent agents, and exploring new AI concepts 
-                            through practical proof-of-concepts.
-                        </p>
-                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
-                            With a background in computer science and machine learning, I bridge the gap between theoretical research and 
-                            practical applications, creating solutions that can make a real impact in the world.
-                        </p>
-                    </div>
-                </section>
-                
-                <!-- Experience Section -->
-                <section id="experience-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">Experience</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Career Journey
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3 class="card-title">Senior AI Engineer (2023-Present)</h3>
-                            <p class="card-description">Leading AI research and development projects, implementing state-of-the-art models and algorithms.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Machine Learning Engineer (2021-2023)</h3>
-                            <p class="card-description">Developed and deployed ML models for production environments, focusing on scalability and performance.</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Research Assistant (2020-2021)</h3>
-                            <p class="card-description">Conducted research in deep learning and computer vision, published papers in top-tier conferences.</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Skills Section -->
-                <section id="skills-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">Skills & Technologies</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Skills Demo
-                        </a>
-                    </div>
-                    <div class="grid">
-                        <div class="card">
-                            <h3 class="card-title">Programming Languages</h3>
-                            <p class="card-description">Python, JavaScript, R, Julia, C++, SQL</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">AI/ML Frameworks</h3>
-                            <p class="card-description">TensorFlow, PyTorch, Scikit-learn, Hugging Face, OpenAI API</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Cloud & DevOps</h3>
-                            <p class="card-description">AWS, Google Cloud, Docker, Kubernetes, MLOps</p>
-                        </div>
-                        <div class="card">
-                            <h3 class="card-title">Research Areas</h3>
-                            <p class="card-description">NLP, Computer Vision, Reinforcement Learning, Generative AI</p>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Contact Section -->
-                <section id="contact-content" class="content-section" style="display:none;">
-                    <div class="section-header">
-                        <h1 class="section-title">Get In Touch</h1>
-                        <a href="#" class="video-reference">
-                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <polygon points="5,3 19,12 5,21"/>
-                            </svg>
-                            Contact Info
-                        </a>
-                    </div>
-                    <div style="max-width: 600px; margin: 0 auto;">
-                        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
-                            I'm always open to discussing new projects, research collaborations, or any other inquiries you may have.
-                        </p>
-                        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; color: var(--text-secondary);">
-                            You can reach out to me via email at <a href="mailto:your.email@example.com" style="color: var(--primary-pink);">your.email@example.com</a> or connect with me on 
-                            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="color: var(--primary-pink);">LinkedIn</a>.
-                        </p>
-                    </div>
-                </section>
             </div>
         </main>
     </div>
     
-    <!-- Replace both script sections with this single script block right before </body> -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const contentContainer = document.getElementById('content-container');
-            
-            // Initialize with home content
-            const homeContent = document.getElementById('home-content');
-            if (homeContent) {
-                contentContainer.innerHTML = homeContent.outerHTML;
-            }
-            
+
+            // Initially hide all content sections
+            const contentSections = document.querySelectorAll('.content-section');
+            contentSections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the home section by default
+            document.getElementById('home-content').style.display = 'block';
+
             // Add click event listeners to navigation links
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const section = this.getAttribute('data-section');
-                    
+
+                    // Hide all content sections
+                    contentSections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+
+                    // Show the selected section
+                    const selectedSection = document.getElementById(`${section}-content`);
+                    if (selectedSection) {
+                        selectedSection.style.display = 'block';
+                    }
+
                     // Update active link
                     navLinks.forEach(nav => nav.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    // Update content
-                    const targetSection = document.getElementById(`${section}-content`);
-                    if (targetSection) {
-                        // Hide all sections
-                        document.querySelectorAll('.content-section').forEach(section => {
-                            section.style.display = 'none';
-                        });
-                        
-                        // Show selected section
-                        targetSection.style.display = 'block';
-                    }
                 });
             });
         });
