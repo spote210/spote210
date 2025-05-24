@@ -365,6 +365,21 @@
                 transform: translateY(0);
             }
         }
+
+        /* Add this to your existing styles */
+        .video-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .video-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -997,70 +1012,43 @@
         // YouTube video IDs - replace these with your actual video IDs
         const projects = [
             {
-                id: 'dQw4w9WgXcQ', // Replace with your video ID
-                title: 'AI Chat Interface',
-                description: 'A sophisticated chat interface with AI integration'
+                id: 'TMLdH-O1tX8',  // AlphaGo documentary
+                title: 'AI Project: Deep Learning System',
+                description: 'Implementation of advanced neural networks for strategic decision making'
             },
             {
-                id: 'M7lc1UVf-VE', // Replace with your video ID
-                title: 'Data Visualization Dashboard',
-                description: 'Interactive data analysis dashboard'
+                id: 'aircAruvnKk',  // 3Blue1Brown Neural Networks
+                title: 'Neural Network Visualization',
+                description: 'Interactive visualization of neural network architecture and learning process'
             },
             {
-                id: '9bZkp7q19f0', // Replace with your video ID
-                title: 'ML Pipeline',
-                description: 'End-to-end machine learning pipeline'
+                id: 'fwdq8Z7TMHk',  // Stanford CS25 - Transformers
+                title: 'Transformer Implementation',
+                description: 'End-to-end implementation of transformer architecture with attention mechanisms'
             }
         ];
 
         // Replace the projects section content
-        const projectsContent = `
-            <section class="content-section">
-                <div class="section-header">
-                    <h1 class="section-title">Projects</h1>
-                    <a href="#" class="video-reference">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <polygon points="5,3 19,12 5,21"/>
+        document.querySelector('.project-grid').innerHTML = projects.map(project => `
+            <div class="project-card">
+                <div class="video-thumbnail" onclick="playVideo('${project.id}')">
+                    <img src="https://img.youtube.com/vi/${project.id}/maxresdefault.jpg" 
+                         alt="${project.title}">
+                    <div class="play-button">
+                        <svg class="play-icon" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M8 5v14l11-7z"/>
                         </svg>
-                        Projects Demo
-                    </a>
+                    </div>
                 </div>
-                
-                <div class="project-grid">
-                    ${projects.map(project => `
-                        <div class="project-card">
-                            <div class="video-thumbnail" onclick="playVideo('${project.id}')">
-                                <img src="https://img.youtube.com/vi/${project.id}/maxresdefault.jpg" 
-                                     alt="${project.title}">
-                                <div class="play-button">
-                                    <svg class="play-icon" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="project-info">
-                                <h3 class="project-title">${project.title}</h3>
-                                <p class="project-description">${project.description}</p>
-                            </div>
-                        </div>
-                    `).join('')}
+                <div class="project-info">
+                    <h3 class="project-title">${project.title}</h3>
+                    <p class="project-description">${project.description}</p>
+                    <a href="https://www.youtube.com/watch?v=${project.id}" 
+                       target="_blank" 
+                       class="video-link">Watch on YouTube</a>
                 </div>
-            </section>
-        `;
-
-        // Function to play video
-        function playVideo(videoId) {
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            iframe.width = '100%';
-            iframe.height = '100%';
-            iframe.allow = 'autoplay; encrypted-media';
-            iframe.allowFullscreen = true;
-            
-            const thumbnail = event.currentTarget;
-            thumbnail.innerHTML = '';
-            thumbnail.appendChild(iframe);
-        }
+            </div>
+        `).join('');
     </script>
 </body>
 </html>
