@@ -255,49 +255,6 @@
             transform: translateY(-5px);
         }
         
-        .youtube-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            background: #000;
-        }
-        
-        .youtube-thumbnail {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 0, 0, 0.8);
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-        
-        .play-button:hover {
-            background: rgb(255, 0, 0);
-        }
-        
-        .play-icon {
-            width: 24px;
-            height: 24px;
-            fill: white;
-        }
-        
         .project-title {
             padding: 1rem;
             margin: 0;
@@ -520,19 +477,17 @@
                 <section id="projects-content" class="content-section" style="display:none;">
                     <div class="section-header">
                         <h1 class="section-title">Projects</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Projects Demo
+                        </a>
                     </div>
-                    <div class="project-grid">
-                        <div class="project-card">
-                            <div class="youtube-container">
-                                <img src="https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg" alt="Project Video Thumbnail" class="youtube-thumbnail">
-                                <button class="play-button" data-video-id="VIDEO_ID_HERE">
-                                    <svg class="play-icon" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h3 class="project-title">Project Name</h3>
-                            <p class="project-description">Project description goes here</p>
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Project 1</h3>
+                            <p class="card-description">Project description goes here.</p>
                         </div>
                     </div>
                 </section>
@@ -590,31 +545,6 @@
             });
         });
         
-        // Add this JavaScript code at the end of your existing script section
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.play-button')) {
-                const button = e.target.closest('.play-button');
-                const videoId = button.getAttribute('data-video-id');
-                const container = button.closest('.youtube-container');
-                
-                // Create and insert iframe
-                const iframe = document.createElement('iframe');
-                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
-                iframe.setAttribute('frameborder', '0');
-                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                iframe.setAttribute('allowfullscreen', '');
-                iframe.style.position = 'absolute';
-                iframe.style.top = '0';
-                iframe.style.left = '0';
-                iframe.style.width = '100%';
-                iframe.style.height = '100%';
-                
-                // Replace thumbnail with iframe
-                container.innerHTML = '';
-                container.appendChild(iframe);
-            }
-        });
-        
         // Section content object
         const sectionContent = {
             home: `
@@ -660,19 +590,17 @@
                 <section class="content-section">
                     <div class="section-header">
                         <h1 class="section-title">Projects</h1>
+                        <a href="#" class="video-reference">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <polygon points="5,3 19,12 5,21"/>
+                            </svg>
+                            Projects Demo
+                        </a>
                     </div>
-                    <div class="project-grid">
-                        <div class="project-card">
-                            <div class="youtube-container">
-                                <img src="https://img.youtube.com/vi/VIDEO_ID_HERE/maxresdefault.jpg" alt="Project Video Thumbnail" class="youtube-thumbnail">
-                                <button class="play-button" data-video-id="VIDEO_ID_HERE">
-                                    <svg class="play-icon" viewBox="0 0 24 24">
-                                        <path fill="currentColor" d="M8 5v14l11-7z"/>
-                                    </svg>
-                                </button>
-                            </div>
-                            <h3 class="project-title">Project Name</h3>
-                            <p class="project-description">Project description goes here</p>
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Project 1</h3>
+                            <p class="card-description">Project description goes here.</p>
                         </div>
                     </div>
                 </section>
